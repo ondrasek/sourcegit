@@ -1,0 +1,13 @@
+<Project>
+
+  <PropertyGroup>
+    <!-- Code Analysis: use latest recommended Roslyn rules -->
+    <AnalysisLevel>latest-Recommended</AnalysisLevel>
+
+    <!-- Enforce .editorconfig style rules during build -->
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+
+    <!-- Nullable: not enabled yet (54K LOC — enable incrementally per-file) -->
+  </PropertyGroup>
+
+</Project>

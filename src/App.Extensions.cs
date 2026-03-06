@@ -44,7 +44,7 @@ namespace SourceGit
                 {
                     foreach (var subDir in dir.GetDirectories("*", options))
                     {
-                        if (subDir.Name.StartsWith(".", StringComparison.Ordinal) ||
+                        if (subDir.Name.StartsWith('.') ||
                             subDir.Name.Equals("node_modules", StringComparison.OrdinalIgnoreCase))
                             continue;
 

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace SourceGit.ViewModels
 {
@@ -49,7 +50,7 @@ namespace SourceGit.ViewModels
             Use(log);
 
             var prefix = _repo.GitFlow.GetPrefix(Type);
-            var name = Branch.Name.StartsWith(prefix) ? Branch.Name.Substring(prefix.Length) : Branch.Name;
+            var name = Branch.Name.StartsWith(prefix, StringComparison.Ordinal) ? Branch.Name.Substring(prefix.Length) : Branch.Name;
             var succ = await Commands.GitFlow.FinishAsync(_repo.FullPath, Type, name, Squash, AutoPush, KeepBranch, log);
 
             log.Complete();

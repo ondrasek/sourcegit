@@ -43,3 +43,6 @@ build/*.AppImage
 SourceGit.app/
 build.command
 src/Properties/launchSettings.json
+
+# Claude Code hooks
+.claude/hooks/hook-debug.log

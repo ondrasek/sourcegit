@@ -593,7 +593,7 @@ namespace SourceGit.Views
                 var width = test.WidthIncludingTrailingWhitespace;
                 foreach (var margin in TextArea.LeftMargins)
                 {
-                    if (margin is LineNumberMargin lineNumberMargin)
+                    if (margin is LineNumberMargin)
                         margin.Width = width;
                 }
 

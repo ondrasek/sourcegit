@@ -157,9 +157,9 @@ namespace SourceGit.ViewModels
                 var files = new DirectoryInfo(dir).GetFiles();
                 foreach (var file in files)
                 {
-                    if (file.Name.StartsWith("bad"))
+                    if (file.Name.StartsWith("bad", StringComparison.Ordinal))
                         info.Bads.Add(File.ReadAllText(file.FullName).Trim());
-                    else if (file.Name.StartsWith("good"))
+                    else if (file.Name.StartsWith("good", StringComparison.Ordinal))
                         info.Goods.Add(File.ReadAllText(file.FullName).Trim());
                 }
             }

@@ -97,7 +97,8 @@ namespace SourceGit.Models
 
             var uri = new Uri(baseURL);
             var host = uri.Host;
-            var route = uri.AbsolutePath.TrimStart('/');
+
+            _ = uri.AbsolutePath.TrimStart('/');
             var encodedBranch = HttpUtility.UrlEncode(mergeBranch);
 
             if (host.Contains("github.com", StringComparison.Ordinal))

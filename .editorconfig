@@ -205,8 +205,18 @@ dotnet_diagnostic.CA1854.severity = warning
 #CA2211:Non-constant fields should not be visible
 dotnet_diagnostic.CA2211.severity = error
 
-# IDE0005: remove used namespace using
+# IDE0005: remove unused namespace using
 dotnet_diagnostic.IDE0005.severity = error
+
+# Dead code analyzers (Dimension 6)
+# IDE0051: Remove unused private member
+dotnet_diagnostic.IDE0051.severity = warning
+# IDE0052: Remove unread private member
+dotnet_diagnostic.IDE0052.severity = warning
+# IDE0059: Unnecessary assignment of a value
+dotnet_diagnostic.IDE0059.severity = warning
+# IDE0060: Remove unused parameter (suggestion: interface/attribute params are false positives)
+dotnet_diagnostic.IDE0060.severity = suggestion
 
 # Wrapping preferences
 csharp_wrap_before_ternary_opsigns = false

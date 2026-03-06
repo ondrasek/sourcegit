@@ -37,7 +37,8 @@ namespace SourceGit.ViewModels
                     Preferences.Instance.UseFullTextDiff = value;
                     OnPropertyChanged();
 
-                    if (Content is TextDiffContext ctx)
+
+                    if (Content is TextDiffContext)
                         LoadContent();
                 }
             }

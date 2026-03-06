@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace SourceGit.ViewModels
@@ -126,9 +127,9 @@ namespace SourceGit.ViewModels
             };
 
             HeadName = File.ReadAllText(Path.Combine(repo.GitDir, "rebase-merge", "head-name")).Trim();
-            if (HeadName.StartsWith("refs/heads/"))
+            if (HeadName.StartsWith("refs/heads/", StringComparison.Ordinal))
                 HeadName = HeadName.Substring(11);
-            else if (HeadName.StartsWith("refs/tags/"))
+            else if (HeadName.StartsWith("refs/tags/", StringComparison.Ordinal))
                 HeadName = HeadName.Substring(10);
 
             var stoppedSHAPath = Path.Combine(repo.GitDir, "rebase-merge", "stopped-sha");

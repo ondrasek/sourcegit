@@ -547,7 +547,7 @@ namespace SourceGit
             var sha = match.Groups[1].Value;
             foreach (var job in collection.Jobs)
             {
-                if (job.SHA.StartsWith(sha))
+                if (job.SHA.StartsWith(sha, StringComparison.Ordinal))
                 {
                     File.WriteAllText(file, job.Message);
                     break;
