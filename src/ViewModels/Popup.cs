@@ -46,7 +46,7 @@ namespace SourceGit.ViewModels
 
         public virtual Task<bool> Sure()
         {
-            return null;
+            return Task.FromResult(false);
         }
 
         protected void Use(CommandLog log)

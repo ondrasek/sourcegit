@@ -10,4 +10,10 @@
     <!-- Nullable: not enabled yet (54K LOC — enable incrementally per-file) -->
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Roslynator.Analyzers" Version="4.15.0" PrivateAssets="All" />
+    <PackageReference Include="Meziantou.Analyzer" Version="3.0.9" PrivateAssets="All" />
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="10.20.0.135146" PrivateAssets="All" />
+  </ItemGroup>
+
 </Project>

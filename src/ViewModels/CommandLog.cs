@@ -54,7 +54,7 @@ namespace SourceGit.ViewModels
             _receivers.Remove(receiver);
         }
 
-        public void AppendLine(string line = null)
+        public void AppendLine(string line)
         {
             if (!Dispatcher.UIThread.CheckAccess())
             {

@@ -22,7 +22,7 @@ namespace SourceGit.Models
 
             Name = parts[0];
             Email = parts[1].TrimStart('<').TrimEnd('>');
-            _hash = data.GetHashCode();
+            _hash = System.StringComparer.Ordinal.GetHashCode(data);
         }
 
         public override bool Equals(object obj)

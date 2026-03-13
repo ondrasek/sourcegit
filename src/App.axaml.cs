@@ -130,7 +130,7 @@ namespace SourceGit
                 if (Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime { MainWindow: { } mainWindow })
                     owner = mainWindow;
                 else
-                    return null;
+                    return Task.CompletedTask;
             }
 
             if (data is Views.ChromelessWindow window)
@@ -143,7 +143,7 @@ namespace SourceGit
                 return window.ShowDialog(owner);
             }
 
-            return null;
+            return Task.CompletedTask;
         }
 
         public static void ShowWindow(object data)

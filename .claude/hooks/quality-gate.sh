@@ -16,7 +16,7 @@ PROJECT="src/SourceGit.csproj"
 
 get_hint() {
     case "$1" in
-        dotnet-format) echo "Run 'dotnet format ${PROJECT} --include <file>' to auto-fix formatting. Check .editorconfig rules if the fix doesn't apply. Read the file at the reported location." ;;
+        dotnet-format|dotnet-style) echo "Run 'dotnet format ${PROJECT} --include <file>' to auto-fix formatting. Check .editorconfig rules if the fix doesn't apply. Read the file at the reported location." ;;
         dotnet-build) echo "Read the file at the reported line and column number. Fix the compiler error or analyzer warning. Run 'dotnet build ${PROJECT} --no-restore' to re-check after fixing." ;;
         security-audit) echo "Run 'dotnet list ${PROJECT} package --vulnerable --include-transitive' to see all vulnerable packages. Update the affected package version in the .csproj file." ;;
         *) echo "" ;;
@@ -58,7 +58,9 @@ cd "${CLAUDE_PROJECT_DIR:-.}"
 dotnet restore "$PROJECT" --verbosity quiet 2>/dev/null
 
 # [check:dotnet-format] Dimension 2: Linting & Formatting
-run_check "dotnet-format" dotnet format "$PROJECT" --verify-no-changes --verbosity quiet
+# Split into whitespace + style; analyzer warnings are enforced by the build step.
+run_check "dotnet-format" dotnet format whitespace "$PROJECT" --verify-no-changes --verbosity quiet
+run_check "dotnet-style"  dotnet format style "$PROJECT" --verify-no-changes --verbosity quiet
 
 # [check:dotnet-build] Dimension 3: Type Safety + Dimension 6: Dead Code
 # Build without -warnaserror — .editorconfig error-level rules (IDE0005, CS0649, etc.) enforce strictness.

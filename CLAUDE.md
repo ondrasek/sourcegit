@@ -23,6 +23,7 @@ No test projects exist yet. No `dotnet test` available.
 - **Formatting**: `.editorconfig` enforced by `dotnet format`. Block-scoped namespaces, Allman braces, `var` preferred.
 - **Naming**: `_camelCase` for private fields, `s_camelCase` for private static fields, `PascalCase` for constants.
 - **No tests**: When adding testable logic, prefer pure methods in Models/ or ViewModels/.
+- **Analyzers**: Roslynator, Meziantou.Analyzer, SonarAnalyzer.CSharp in `Directory.Build.props`. Severity tuning in `.editorconfig`.
 - **AOT/Trimming**: Enabled in Release builds. Avoid reflection-heavy patterns.
 - **Submodule**: Run `git submodule update --init` after clone.
 

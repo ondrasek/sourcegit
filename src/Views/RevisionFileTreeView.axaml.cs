@@ -324,7 +324,7 @@ namespace SourceGit.Views
             {
                 var menu = obj.Type switch
                 {
-                    Models.ObjectType.Tree => CreateRevisionFileContextMenuByFolder(repo, vm, commit, obj.Path),
+                    Models.ObjectType.Tree => CreateRevisionFileContextMenuByFolder(repo, commit, obj.Path),
                     _ => CreateRevisionFileContextMenu(repo, vm, commit, obj),
                 };
                 menu.Open(grid);
@@ -437,7 +437,7 @@ namespace SourceGit.Views
             _isReloadingTreeData = false;
         }
 
-        private ContextMenu CreateRevisionFileContextMenuByFolder(ViewModels.Repository repo, ViewModels.CommitDetail vm, Models.Commit commit, string path)
+        private ContextMenu CreateRevisionFileContextMenuByFolder(ViewModels.Repository repo, Models.Commit commit, string path)
         {
             var fullPath = Native.OS.GetAbsPath(repo.FullPath, path);
             var explore = new MenuItem();
